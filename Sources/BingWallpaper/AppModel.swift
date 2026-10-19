@@ -134,7 +134,7 @@ final class AppModel {
 
             // 用户在这一轮里切了主题/市场，就不要用旧结果覆盖界面。
             guard key == prefs.catalogKey else { return }
-            images = fetched.filter(store.hasFile)
+            images = fetched.filter { store.hasFile(for: $0) }
             if images.isEmpty, let error = downloadErrors.first { throw error }
 
             applyAutomaticSelection(force: manual)
@@ -175,7 +175,7 @@ final class AppModel {
     }
 
     private func loadCachedCatalog() async {
-        images = await store.catalog(for: prefs.catalogKey).filter(store.hasFile)
+        images = await store.catalog(for: prefs.catalogKey).filter { store.hasFile(for: $0) }
         loadPreview()
     }
 

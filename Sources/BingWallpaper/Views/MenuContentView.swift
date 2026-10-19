@@ -55,7 +55,7 @@ struct MenuContentView: View {
     }
 
     private var themePicker: some View {
-        Picker("主题", selection: Binding(get: { model.prefs.theme }, set: model.selectTheme)) {
+        Picker("主题", selection: Binding(get: { model.prefs.theme }, set: { model.selectTheme($0) })) {
             ForEach(model.themes) { theme in
                 Text(theme.isNew ? "\(theme.name)（新）" : theme.name).tag(theme.key)
             }
@@ -114,10 +114,10 @@ private struct PreviewCard: View {
             }
             .clipShape(RoundedRectangle(cornerRadius: 10))
         .overlay(alignment: .leading) {
-            NavButton(systemName: "chevron.left", help: "上一张（更早）", enabled: model.canGoOlder, action: model.showOlder)
+            NavButton(systemName: "chevron.left", help: "上一张（更早）", enabled: model.canGoOlder, action: { model.showOlder() })
         }
         .overlay(alignment: .trailing) {
-            NavButton(systemName: "chevron.right", help: "下一张（更新）", enabled: model.canGoNewer, action: model.showNewer)
+            NavButton(systemName: "chevron.right", help: "下一张（更新）", enabled: model.canGoNewer, action: { model.showNewer() })
         }
     }
 }

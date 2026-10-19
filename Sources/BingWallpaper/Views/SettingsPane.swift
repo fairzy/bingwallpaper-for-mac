@@ -6,7 +6,7 @@ struct SettingsPane: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Picker("市场", selection: Binding(get: { model.prefs.market }, set: model.selectMarket)) {
+            Picker("市场", selection: Binding(get: { model.prefs.market }, set: { model.selectMarket($0) })) {
                 ForEach(Market.all) { market in
                     Text("\(market.name)  \(market.code)").tag(market.code)
                 }
@@ -14,8 +14,8 @@ struct SettingsPane: View {
             .pickerStyle(.menu)
 
             Toggle("每日自动更换壁纸", isOn: Bindable(model.prefs).dailyRefreshEnabled)
-            Toggle("过滤 AI 生成的图片", isOn: Binding(get: { model.prefs.bicFilterEnabled }, set: model.setBicFilter))
-            Toggle("登录时启动", isOn: Binding(get: { model.launchAtLogin }, set: model.setLaunchAtLogin))
+            Toggle("过滤 AI 生成的图片", isOn: Binding(get: { model.prefs.bicFilterEnabled }, set: { model.setBicFilter($0) }))
+            Toggle("登录时启动", isOn: Binding(get: { model.launchAtLogin }, set: { model.setLaunchAtLogin($0) }))
                 .disabled(!LaunchAtLogin.isAvailable)
                 .help(LaunchAtLogin.isAvailable ? "" : "需要以 .app 形式运行")
 
