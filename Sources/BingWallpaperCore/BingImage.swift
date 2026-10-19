@@ -79,8 +79,19 @@ public struct BingImage: Codable, Hashable, Identifiable, Sendable {
         return safe + ".jpg"
     }
 
-    public var copyrightURL: URL? { copyrightlink.flatMap(URL.init(string:)) }
-    public var quizURL: URL? { quiz.flatMap(URL.init(string:)) }
+    public var copyrightURL: URL? { Self.lenientURL(copyrightlink) }
+    public var quizURL: URL? { Self.lenientURL(quiz) }
+
+    /// 接口给的链接里混着已转义的 `%e5…` 和未转义的 `"`。`URL(string:)` 遇到非法字符会把整串
+    /// 重新转义，`%` 也变成 `%25`，搜索词就乱了。所以这里只补转义非法字符，保留已有的 `%xx`。
+    public static func lenientURL(_ string: String?) -> URL? {
+        guard let string, !string.isEmpty else { return nil }
+        return URL(string: string.addingPercentEncoding(withAllowedCharacters: urlCharacters) ?? string)
+    }
+
+    private static let urlCharacters = CharacterSet(
+        charactersIn: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~:/?#[]@!$&'()*+,;=%"
+    )
 }
 
 public struct HPImagesResponse: Decodable, Sendable {

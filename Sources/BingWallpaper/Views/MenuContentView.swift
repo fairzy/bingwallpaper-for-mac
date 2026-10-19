@@ -114,34 +114,50 @@ private struct CaptionView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            if let headline = image.headline, !headline.isEmpty {
-                Text(headline).font(.headline)
-            }
-            if let title = image.title {
-                Text(title).font(.subheadline).foregroundStyle(.secondary)
-            }
-            HStack(spacing: 6) {
-                if let date = image.date {
-                    Text(date, format: .dateTime.year().month().day())
+            VStack(alignment: .leading, spacing: 4) {
+                if let headline = image.headline, !headline.isEmpty {
+                    Text(headline).font(.headline)
                 }
-                if let copyright = image.copyrighttext {
-                    Text(copyright).lineLimit(1).truncationMode(.tail)
+                if let title = image.title {
+                    Text(title).font(.subheadline).foregroundStyle(.secondary)
                 }
+                HStack(spacing: 6) {
+                    if let date = image.date {
+                        Text(date, format: .dateTime.year().month().day())
+                    }
+                    if let copyright = image.copyrighttext {
+                        Text(copyright).lineLimit(1).truncationMode(.tail)
+                    }
+                }
+                .font(.caption)
+                .foregroundStyle(.tertiary)
             }
-            .font(.caption)
-            .foregroundStyle(.tertiary)
+            .textSelection(.enabled)
             HStack(spacing: 14) {
                 if let url = image.copyrightURL {
-                    Link("了解更多", destination: url)
+                    LinkButton(title: "了解更多", url: url)
                 }
                 if let url = image.quizURL {
-                    Link("每日测验", destination: url)
+                    LinkButton(title: "每日测验", url: url)
                 }
             }
             .font(.caption)
             .padding(.top, 2)
         }
-        .textSelection(.enabled)
+    }
+}
+
+/// 用按钮代替 `Link`，点击范围只限各自的文字，两个链接挨着时不会串。
+private struct LinkButton: View {
+    let title: String
+    let url: URL
+
+    var body: some View {
+        Button(title) { NSWorkspace.shared.open(url) }
+            .buttonStyle(.link)
+            .fixedSize()
+            .contentShape(Rectangle())
+            .help(url.absoluteString)
     }
 }
 

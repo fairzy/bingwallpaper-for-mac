@@ -20,6 +20,15 @@ private func fixture(_ name: String) throws -> Data {
         #expect(first.copyrightURL != nil)
     }
 
+    @Test func linksKeepExistingEscapesAndOnlyEncodeQuotes() throws {
+        let first = try #require(try JSONDecoder().decode(HPImagesResponse.self, from: fixture("hpimages-zh-CN")).images.first)
+        let copyright = try #require(first.copyrightURL).absoluteString
+        #expect(copyright.hasPrefix("https://www.bing.com/search?q=%e5%a8%81%e5%b0%bc"))
+        #expect(!copyright.contains("%25"))
+        #expect(copyright.contains("HpDate:%2220261018_1600%22"))
+        #expect(first.quizURL?.absoluteString == "https://www.bing.com/search?q=Bing+homepage+quiz&filters=WQOskey:%22HPQuiz_20261019_VeniceSunrise%22&FORM=BGAQ")
+    }
+
     @Test func downloadURLUpgradesToHTTPSAndAddsQuality() throws {
         let image = BingImage(startdate: "20261018", urlbase: "http://ts1.tc.mm.bing.net/th?id=OHR.DolbadarnWales_ZH-CN3649667806_UHD.jpg")
         let url = try #require(image.downloadURL)
