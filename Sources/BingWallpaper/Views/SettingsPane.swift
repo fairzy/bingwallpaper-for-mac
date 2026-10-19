@@ -5,7 +5,7 @@ struct SettingsPane: View {
     @Bindable var model: AppModel
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 12) {
             Picker("市场", selection: Binding(get: { model.prefs.market }, set: model.selectMarket)) {
                 ForEach(Market.all) { market in
                     Text("\(market.name)  \(market.code)").tag(market.code)

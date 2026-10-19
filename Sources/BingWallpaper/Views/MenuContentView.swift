@@ -5,22 +5,53 @@ struct MenuContentView: View {
     @Bindable var model: AppModel
     @State private var showSettings = false
 
+    /// MenuBarExtra 的窗口弹出后不会跟着内容变高，所以两页共用固定高度，切换时窗口尺寸不变。
+    private static let pageHeight: CGFloat = 372
+
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            PreviewCard(model: model)
-            if let image = model.currentImage {
-                CaptionView(image: image)
+            Group {
+                if showSettings {
+                    settingsPage
+                } else {
+                    mainPage
+                }
             }
-            Divider()
-            themePicker
-            if showSettings {
-                SettingsPane(model: model)
-            }
+            .frame(height: Self.pageHeight, alignment: .top)
             Divider()
             footer
         }
         .padding(14)
         .frame(width: 380)
+    }
+
+    private var mainPage: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            PreviewCard(model: model)
+            if let image = model.currentImage {
+                CaptionView(image: image)
+            }
+            Spacer(minLength: 0)
+            Divider()
+            themePicker
+        }
+    }
+
+    private var settingsPage: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Button {
+                showSettings = false
+            } label: {
+                Label("设置", systemImage: "chevron.left").font(.headline)
+            }
+            .buttonStyle(.plain)
+            Divider()
+            SettingsPane(model: model)
+            Spacer(minLength: 0)
+            if let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
+                Text("版本 \(version)").font(.caption).foregroundStyle(.tertiary)
+            }
+        }
     }
 
     private var themePicker: some View {
@@ -44,7 +75,7 @@ struct MenuContentView: View {
             .help("立即刷新")
             .disabled(model.status == .refreshing)
             Button {
-                withAnimation(.snappy) { showSettings.toggle() }
+                showSettings.toggle()
             } label: {
                 Image(systemName: showSettings ? "gearshape.fill" : "gearshape")
             }
@@ -116,10 +147,10 @@ private struct CaptionView: View {
         VStack(alignment: .leading, spacing: 4) {
             VStack(alignment: .leading, spacing: 4) {
                 if let headline = image.headline, !headline.isEmpty {
-                    Text(headline).font(.headline)
+                    Text(headline).font(.headline).lineLimit(1)
                 }
                 if let title = image.title {
-                    Text(title).font(.subheadline).foregroundStyle(.secondary)
+                    Text(title).font(.subheadline).foregroundStyle(.secondary).lineLimit(2)
                 }
                 HStack(spacing: 6) {
                     if let date = image.date {
