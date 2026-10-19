@@ -96,20 +96,23 @@ private struct PreviewCard: View {
     let model: AppModel
 
     var body: some View {
-        ZStack {
-            Rectangle().fill(.quaternary)
-            if let preview = model.preview {
-                Image(nsImage: preview)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-            } else if model.status == .refreshing {
-                ProgressView()
-            } else {
-                Image(systemName: "photo").font(.largeTitle).foregroundStyle(.secondary)
+        // 尺寸由底层矩形决定；图片放在 overlay 里，宽高比再怪也不会把整列撑宽。
+        Rectangle()
+            .fill(.quaternary)
+            .frame(maxWidth: .infinity)
+            .frame(height: 198)
+            .overlay {
+                if let preview = model.preview {
+                    Image(nsImage: preview)
+                        .resizable()
+                        .scaledToFill()
+                } else if model.status == .refreshing {
+                    ProgressView()
+                } else {
+                    Image(systemName: "photo").font(.largeTitle).foregroundStyle(.secondary)
+                }
             }
-        }
-        .frame(height: 198)
-        .clipShape(RoundedRectangle(cornerRadius: 10))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
         .overlay(alignment: .leading) {
             NavButton(systemName: "chevron.left", help: "上一张（更早）", enabled: model.canGoOlder, action: model.showOlder)
         }
