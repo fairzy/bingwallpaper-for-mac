@@ -3,3 +3,6 @@ build/
 .swiftpm/
 *.xcodeproj/xcuserdata/
 .DS_Store
+
+# 本机签名与公证脚本，含钥匙串和 API Key 路径，不入库
+scripts/release-dmg.sh
