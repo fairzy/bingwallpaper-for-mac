@@ -122,7 +122,7 @@ final class AppModel {
             guard !fetched.isEmpty else {
                 failureCount += 1
                 log.warning("Empty catalog (count=\(self.failureCount))")
-                status = .failed("目录为空，稍后重试")
+                status = .failed(String(localized: "目录为空，稍后重试"))
                 return
             }
             try await store.setCatalog(fetched, for: key)
@@ -140,7 +140,7 @@ final class AppModel {
             applyAutomaticSelection(force: manual)
             prefs.lastDailyImageRefreshTime = .now
             failureCount = 0
-            status = downloadErrors.isEmpty ? .idle : .failed("有 \(downloadErrors.count) 张图片下载失败")
+            status = downloadErrors.isEmpty ? .idle : .failed(String(format: String(localized: "有 %@ 张图片下载失败"), "\(downloadErrors.count)"))
 
             let protected = Set([currentImage?.fileName].compactMap { $0 })
             let removed = try await store.cleanup(keepingCatalogs: [key], protectedFiles: protected)
@@ -189,7 +189,7 @@ final class AppModel {
             loadPreview()
         } catch {
             log.error("Set wallpaper failed: \(error.localizedDescription, privacy: .public)")
-            status = .failed("设置壁纸失败：\(error.localizedDescription)")
+            status = .failed(String(format: String(localized: "设置壁纸失败：%@"), error.localizedDescription))
         }
     }
 
@@ -229,7 +229,7 @@ final class AppModel {
             try LaunchAtLogin.setEnabled(enabled)
         } catch {
             log.error("Launch at login failed: \(error.localizedDescription, privacy: .public)")
-            status = .failed("登录启动设置失败：\(error.localizedDescription)")
+            status = .failed(String(format: String(localized: "登录启动设置失败：%@"), error.localizedDescription))
         }
         launchAtLogin = LaunchAtLogin.isEnabled
     }

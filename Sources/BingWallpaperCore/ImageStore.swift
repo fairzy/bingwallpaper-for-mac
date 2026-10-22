@@ -10,10 +10,10 @@ public enum ImageStoreError: LocalizedError {
 
     public var errorDescription: String? {
         switch self {
-        case .badURL: "图片地址无效"
-        case .badStatus(let code): "图片下载失败（HTTP \(code)）"
-        case .incompleteDownload(let expected, let actual): "图片不完整（\(actual)/\(expected) 字节）"
-        case .invalidImage: "下载的文件不是有效图片"
+        case .badURL: String(localized: "图片地址无效")
+        case .badStatus(let code): String(format: String(localized: "图片下载失败（HTTP %@）"), "\(code)")
+        case .incompleteDownload(let expected, let actual): String(format: String(localized: "图片不完整（%@/%@ 字节）"), "\(actual)", "\(expected)")
+        case .invalidImage: String(localized: "下载的文件不是有效图片")
         }
     }
 }

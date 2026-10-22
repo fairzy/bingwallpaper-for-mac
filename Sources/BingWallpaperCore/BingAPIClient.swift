@@ -7,9 +7,9 @@ public enum BingAPIError: LocalizedError, Equatable {
 
     public var errorDescription: String? {
         switch self {
-        case .badStatus(let code): "服务器返回 HTTP \(code)"
-        case .invalidResponse: "服务器响应无效"
-        case .circuitOpen: "网络连续失败，稍后自动重试"
+        case .badStatus(let code): String(format: String(localized: "服务器返回 HTTP %@"), "\(code)")
+        case .invalidResponse: String(localized: "服务器响应无效")
+        case .circuitOpen: String(localized: "网络连续失败，稍后自动重试")
         }
     }
 }

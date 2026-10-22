@@ -49,7 +49,7 @@ struct MenuContentView: View {
             SettingsPane(model: model)
             Spacer(minLength: 0)
             if let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
-                Text("版本 \(version)").font(.caption).foregroundStyle(.tertiary)
+                Text(String(format: String(localized: "版本 %@"), version)).font(.caption).foregroundStyle(.tertiary)
             }
         }
     }
@@ -57,7 +57,7 @@ struct MenuContentView: View {
     private var themePicker: some View {
         Picker("主题", selection: Binding(get: { model.prefs.theme }, set: { model.selectTheme($0) })) {
             ForEach(model.themes) { theme in
-                Text(theme.isNew ? "\(theme.name)（新）" : theme.name).tag(theme.key)
+                Text(theme.isNew ? String(format: String(localized: "%@（新）"), theme.name) : theme.name).tag(theme.key)
             }
         }
         .pickerStyle(.menu)
@@ -124,7 +124,7 @@ private struct PreviewCard: View {
 
 private struct NavButton: View {
     let systemName: String
-    let help: String
+    let help: LocalizedStringKey
     let enabled: Bool
     let action: () -> Void
 
@@ -183,7 +183,7 @@ private struct CaptionView: View {
 
 /// 用按钮代替 `Link`，点击范围只限各自的文字，两个链接挨着时不会串。
 private struct LinkButton: View {
-    let title: String
+    let title: LocalizedStringKey
     let url: URL
 
     var body: some View {
@@ -213,7 +213,7 @@ private struct StatusLabel: View {
                     .lineLimit(1)
             case .idle:
                 if let lastRefresh {
-                    Text("更新于 \(lastRefresh, format: .relative(presentation: .named))")
+                    Text(String(format: String(localized: "更新于 %@"), lastRefresh.formatted(.relative(presentation: .named))))
                 } else {
                     Text("尚未刷新")
                 }

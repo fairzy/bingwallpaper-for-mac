@@ -28,7 +28,19 @@ cat > "$APP/Contents/Info.plist" <<PLIST
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>CFBundleDevelopmentRegion</key><string>zh_CN</string>
+    <key>CFBundleDevelopmentRegion</key><string>zh-Hans</string>
+    <key>CFBundleLocalizations</key>
+    <array>
+        <string>zh-Hans</string>
+        <string>zh-Hant</string>
+        <string>en</string>
+        <string>ja</string>
+        <string>de</string>
+        <string>fr</string>
+        <string>es</string>
+        <string>it</string>
+        <string>pt-BR</string>
+    </array>
     <key>CFBundleExecutable</key><string>${APP_NAME}</string>
     <key>CFBundleIdentifier</key><string>${BUNDLE_ID}</string>
     <key>CFBundleName</key><string>${DISPLAY_NAME}</string>
@@ -49,7 +61,13 @@ if [ -n "${WALLPAPER_API_BASE:-}" ]; then
   /usr/libexec/PlistBuddy -c "Add :WallpaperAPIBaseURL string ${WALLPAPER_API_BASE}" "$APP/Contents/Info.plist"
 fi
 
-if [ -n "${APP_ICON:-}" ]; then
+for lproj in Sources/BingWallpaper/Resources/*.lproj; do
+  cp -R "$lproj" "$APP/Contents/Resources/"
+done
+
+# 仓库里的图标是默认应用图标。调用方仍可用 APP_ICON 换一张。
+APP_ICON="${APP_ICON:-Sources/BingWallpaper/Resources/AppIcon.icns}"
+if [ -n "$APP_ICON" ] && [ -f "$APP_ICON" ]; then
   cp "$APP_ICON" "$APP/Contents/Resources/AppIcon.icns"
   /usr/libexec/PlistBuddy -c 'Add :CFBundleIconFile string AppIcon' "$APP/Contents/Info.plist"
 fi
