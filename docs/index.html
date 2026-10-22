@@ -104,10 +104,19 @@
     .nav-links a { text-decoration: none; opacity: 0.88; }
     .nav-links a:hover { opacity: 1; }
     .nav-links .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       border: 1px solid rgba(247, 241, 232, 0.35);
       border-radius: 999px;
       padding: 6px 12px;
       opacity: 1;
+    }
+    .gh {
+      width: 14px;
+      height: 14px;
+      display: block;
+      flex: none;
     }
 
     .hero {
@@ -152,6 +161,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 8px;
       min-height: 46px;
       padding: 0 18px;
       border-radius: 999px;
@@ -159,6 +169,7 @@
       font-weight: 600;
       font-size: 15px;
     }
+    .btn .gh { width: 16px; height: 16px; }
     .btn-primary { background: var(--cream); color: var(--ink); }
     .btn-primary:hover { background: white; }
     .btn-ghost { border: 1px solid rgba(247, 241, 232, 0.45); color: var(--cream); }
@@ -441,7 +452,7 @@
       <a href="#features">它做什么</a>
       <a href="#install">安装</a>
       <a href="#faq">问题</a>
-      <a class="pill" href="https://github.com/fairzy/bingwallpaper-for-mac">GitHub</a>
+      <a class="pill" href="https://github.com/fairzy/bingwallpaper-for-mac"><svg class="gh" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
     </nav>
   </header>
 
@@ -452,7 +463,7 @@
         <p class="lede">每天一张。自动换上你的桌面。</p>
         <div class="actions">
           <a class="btn btn-primary" id="primary-cta" href="https://github.com/fairzy/bingwallpaper-for-mac/releases/download/v1.0.0/BingWallpaper-1.0.0.dmg">下载 DMG</a>
-          <a class="btn btn-ghost" href="https://github.com/fairzy/bingwallpaper-for-mac">查看源码</a>
+          <a class="btn btn-ghost" href="https://github.com/fairzy/bingwallpaper-for-mac"><svg class="gh" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>查看源码</a>
         </div>
         <ul class="facts">
           <li>macOS 14+</li>
