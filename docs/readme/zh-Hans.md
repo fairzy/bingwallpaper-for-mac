@@ -78,10 +78,10 @@ Sources/BingWallpaper/       SwiftUI 菜单栏应用
 
 这些是我们的其他产品。
 
-- [Wear.AI](https://wear-ai.online) — 用照片试穿。
-- [Live.AI](https://livephoto-ai.online) — 把静态照片做成 Live Photo。
-- [豆芽绘本百科](https://www.picturebookpedia.cn) — Picturebookpedia。
-- [地球小百科](https://earthpedia.picturebookpedia.cn) — Little Earthpedia，给孩子的 3D 地球百科。
-- [恐龙小百科](https://dino.picturebookpedia.cn) — DinoPedia，给孩子的恐龙百科。
-- [动物好朋友](https://animalfriends.picturebookpedia.cn) — Animal Friends，小朋友和动物角色语音聊天。
-- [Clean.AI](https://aiclean.picturebookpedia.cn) — Mac 上的 AI 磁盘清理。
+- [豆芽绘本百科](https://www.picturebookpedia.cn) — 不知道今晚读哪本？30 万本绘本，按孩子现在的年龄直接挑。
+- [地球小百科](https://earthpedia.picturebookpedia.cn) — 孩子问「这是哪儿」。1800 多个地标，转一下地球就能指给他看。
+- [恐龙小百科](https://dino.picturebookpedia.cn) — 「这是什么龙」问到你答不上。2200 多种恐龙，转个 3D 模型给他看。
+- [动物好朋友](https://animalfriends.picturebookpedia.cn) — 绘本不会回话。点一下，孩子就能给小狮子打电话。
+- [Wear.AI](https://wear-ai.online) — 喜欢的衣服，先穿到自己照片上，再决定买不买。
+- [Live.AI](https://livephoto-ai.online) — 按住一张不会动的照片，它就变成真正的 Live Photo。
+- [Clean.AI](https://aiclean.picturebookpedia.cn) — 磁盘又满了。AI 先标出能删的，你点头才清。

@@ -78,10 +78,10 @@ Sources/BingWallpaper/       app SwiftUI en la barra de menús
 
 Estos son nuestros otros productos.
 
-- [Wear.AI](https://wear-ai.online) — probar ropa sobre una foto.
-- [Live.AI](https://livephoto-ai.online) — convertir una foto fija en un Live Photo.
-- [Picturebookpedia](https://www.picturebookpedia.cn) — 豆芽绘本百科, una guía de álbumes ilustrados.
-- [Little Earthpedia](https://earthpedia.picturebookpedia.cn) — 地球小百科, una enciclopedia 3D de la Tierra para niños.
-- [DinoPedia](https://dino.picturebookpedia.cn) — 恐龙小百科, una enciclopedia de dinosaurios para niños.
-- [Animal Friends](https://animalfriends.picturebookpedia.cn) — 动物好朋友, charlas de voz con animales para niños pequeños.
-- [Clean.AI](https://aiclean.picturebookpedia.cn) — limpieza de disco con IA, para Mac.
+- [Picturebookpedia](https://www.picturebookpedia.cn) — 豆芽绘本百科. 300.000 álbumes ilustrados. Elegir el de esta noche según la edad del niño, en vez de adivinar por la portada.
+- [Little Earthpedia](https://earthpedia.picturebookpedia.cn) — 地球小百科. 1.800 lugares en un globo que un niño puede girar, cuando pregunta dónde es eso.
+- [DinoPedia](https://dino.picturebookpedia.cn) — 恐龙小百科. 2.200 dinosaurios, y un modelo 3D cuando pregunta cuál es.
+- [Animal Friends](https://animalfriends.picturebookpedia.cn) — 动物好朋友. Un álbum no contesta. Un toque, y un niño puede llamar a un león.
+- [Wear.AI](https://wear-ai.online) — Ver la ropa en la propia foto antes de comprarla.
+- [Live.AI](https://livephoto-ai.online) — Mantener pulsada una foto quieta y se mueve. Guardarla como un Live Photo de verdad.
+- [Clean.AI](https://aiclean.picturebookpedia.cn) — El disco está lleno otra vez. La IA marca lo que puede irse. No se borra nada hasta que tú digas que sí.

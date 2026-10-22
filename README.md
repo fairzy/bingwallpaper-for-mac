@@ -78,10 +78,10 @@ Sources/BingWallpaper/       SwiftUI menu-bar app
 
 These are the other products we make.
 
-- [Wear.AI](https://wear-ai.online) — try clothes on a photo.
-- [Live.AI](https://livephoto-ai.online) — turn a still photo into a Live Photo.
-- [Picturebookpedia](https://www.picturebookpedia.cn) — 豆芽绘本百科, a picture-book guide.
-- [Little Earthpedia](https://earthpedia.picturebookpedia.cn) — 地球小百科, a 3D earth encyclopedia for children.
-- [DinoPedia](https://dino.picturebookpedia.cn) — 恐龙小百科, a dinosaur encyclopedia for children.
-- [Animal Friends](https://animalfriends.picturebookpedia.cn) — 动物好朋友, voice chats with animal characters for young children.
-- [Clean.AI](https://aiclean.picturebookpedia.cn) — AI disk cleanup for Mac.
+- [Picturebookpedia](https://www.picturebookpedia.cn) — 豆芽绘本百科. 300,000 picture books. Pick tonight's book by your child's age, instead of guessing from the cover.
+- [Little Earthpedia](https://earthpedia.picturebookpedia.cn) — 地球小百科. 1,800 places on a globe a child can spin, for the moment they ask where that is.
+- [DinoPedia](https://dino.picturebookpedia.cn) — 恐龙小百科. 2,200 dinosaurs, and a 3D model when they ask what kind that is.
+- [Animal Friends](https://animalfriends.picturebookpedia.cn) — 动物好朋友. A picture book will not talk back. Tap, and a child can call a lion.
+- [Wear.AI](https://wear-ai.online) — See the clothes on your own photo before you buy them.
+- [Live.AI](https://livephoto-ai.online) — Hold a still photo and it moves. Save it as a real Live Photo.
+- [Clean.AI](https://aiclean.picturebookpedia.cn) — The disk is full again. The AI marks what can go. Nothing is deleted until you agree.

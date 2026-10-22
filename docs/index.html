@@ -428,6 +428,38 @@
     .faq details p { margin: 8px 0 0; color: var(--muted); max-width: 68ch; }
     .faq-list { margin-top: 28px; }
 
+    .sponsors { padding-bottom: 36px; }
+    .sponsor-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .sponsor {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-width: 0;
+      text-decoration: none;
+      background: white;
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+    .sponsor.feature { grid-column: 1 / -1; padding: 20px 22px; }
+    .sponsor img {
+      width: 72px;
+      height: 72px;
+      flex: none;
+      border-radius: 16px;
+      object-fit: cover;
+    }
+    .sponsor.feature img { width: 96px; height: 96px; border-radius: 22px; }
+    .sponsor .pitch { display: block; flex: 1; min-width: 0; }
+    .sponsor strong { display: block; font-size: 17px; font-weight: 600; }
+    .sponsor .pitch span { display: block; margin-top: 4px; color: var(--muted); font-size: 15px; line-height: 1.45; overflow-wrap: anywhere; }
+    .sponsor:hover { background: #fffdf9; }
+    .sponsor:hover strong { color: var(--accent); }
+
     footer {
       padding: 28px 0 40px;
       color: var(--muted);
@@ -449,6 +481,8 @@
         grid-template-rows: 220px 160px 180px;
       }
       .grid, .install-grid, .edition-grid { grid-template-columns: 1fr; }
+      .sponsor-grid { grid-template-columns: minmax(0, 1fr); }
+      .sponsor.feature img { width: 72px; height: 72px; border-radius: 16px; }
     }
     @media (max-width: 560px) {
       .wrap { width: min(var(--wrap), calc(100% - 36px)); }
@@ -683,6 +717,64 @@ open build/BingWallpaper.app</pre>
             <summary>图片存在哪里？</summary>
             <p>~/Library/Application Support/BingWallpaper。设置里有「在 Finder 中打开图片文件夹」。没有任何内容被上传。</p>
           </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="sponsors" id="sponsors">
+      <div class="wrap">
+        <p class="kicker">Also from us</p>
+        <h2 class="section-title">同一伙人，还做了这些。</h2>
+        <div class="sponsor-grid">
+          <a class="sponsor feature" href="https://www.picturebookpedia.cn">
+            <img src="sponsors/picturebookpedia.png" width="96" height="96" alt="">
+            <span class="pitch">
+              <strong>豆芽绘本百科</strong>
+              <span>不知道今晚读哪本？30 万本绘本，按孩子现在的年龄直接挑。</span>
+            </span>
+          </a>
+          <a class="sponsor" href="https://earthpedia.picturebookpedia.cn">
+            <img src="sponsors/earthpedia.png" width="72" height="72" alt="">
+            <span class="pitch">
+              <strong>地球小百科</strong>
+              <span>孩子问「这是哪儿」。1800 多个地标，转一下地球就能指给他看。</span>
+            </span>
+          </a>
+          <a class="sponsor" href="https://dino.picturebookpedia.cn">
+            <img src="sponsors/dinopedia.png" width="72" height="72" alt="">
+            <span class="pitch">
+              <strong>恐龙小百科</strong>
+              <span>「这是什么龙」问到你答不上。2200 多种恐龙，转个 3D 模型给他看。</span>
+            </span>
+          </a>
+          <a class="sponsor" href="https://animalfriends.picturebookpedia.cn">
+            <img src="sponsors/animalfriends.png" width="72" height="72" alt="">
+            <span class="pitch">
+              <strong>动物好朋友</strong>
+              <span>绘本不会回话。点一下，孩子就能给小狮子打电话。</span>
+            </span>
+          </a>
+          <a class="sponsor" href="https://wear-ai.online">
+            <img src="sponsors/wear.png" width="72" height="72" alt="">
+            <span class="pitch">
+              <strong>Wear.AI</strong>
+              <span>喜欢的衣服，先穿到自己照片上，再决定买不买。</span>
+            </span>
+          </a>
+          <a class="sponsor" href="https://livephoto-ai.online">
+            <img src="sponsors/live.png" width="72" height="72" alt="">
+            <span class="pitch">
+              <strong>Live.AI</strong>
+              <span>按住一张不会动的照片，它就变成真正的 Live Photo。</span>
+            </span>
+          </a>
+          <a class="sponsor" href="https://aiclean.picturebookpedia.cn">
+            <img src="sponsors/clean.png" width="72" height="72" alt="">
+            <span class="pitch">
+              <strong>Clean.AI</strong>
+              <span>磁盘又满了。AI 先标出能删的，你点头才清。</span>
+            </span>
+          </a>
         </div>
       </div>
     </section>

@@ -78,10 +78,10 @@ Sources/BingWallpaper/       SwiftUI-App in der Menüleiste
 
 Das sind unsere anderen Produkte.
 
-- [Wear.AI](https://wear-ai.online) — Kleidung an einem Foto anprobieren.
-- [Live.AI](https://livephoto-ai.online) — aus einem Standfoto ein Live Photo machen.
-- [Picturebookpedia](https://www.picturebookpedia.cn) — 豆芽绘本百科, ein Bilderbuch-Führer.
-- [Little Earthpedia](https://earthpedia.picturebookpedia.cn) — 地球小百科, eine 3D-Erd-Enzyklopädie für Kinder.
-- [DinoPedia](https://dino.picturebookpedia.cn) — 恐龙小百科, eine Dinosaurier-Enzyklopädie für Kinder.
-- [Animal Friends](https://animalfriends.picturebookpedia.cn) — 动物好朋友, Sprachchats mit Tierfiguren für kleine Kinder.
-- [Clean.AI](https://aiclean.picturebookpedia.cn) — Aufräumen der Festplatte mit KI, für den Mac.
+- [Picturebookpedia](https://www.picturebookpedia.cn) — 豆芽绘本百科. 300.000 Bilderbücher. Das Buch für heute Abend nach dem Alter des Kindes aussuchen.
+- [Little Earthpedia](https://earthpedia.picturebookpedia.cn) — 地球小百科. 1.800 Orte auf einem Globus, den ein Kind drehen kann, wenn es fragt, wo das ist.
+- [DinoPedia](https://dino.picturebookpedia.cn) — 恐龙小百科. 2.200 Dinosaurier und ein 3D-Modell, wenn es fragt, welche Art das ist.
+- [Animal Friends](https://animalfriends.picturebookpedia.cn) — 动物好朋友. Ein Bilderbuch antwortet nicht. Antippen, und ein Kind kann einen Löwen anrufen.
+- [Wear.AI](https://wear-ai.online) — Die Kleider erst auf dem eigenen Foto sehen, dann kaufen.
+- [Live.AI](https://livephoto-ai.online) — Ein Standfoto gedrückt halten, und es bewegt sich. Als echtes Live Photo sichern.
+- [Clean.AI](https://aiclean.picturebookpedia.cn) — Die Festplatte ist wieder voll. Die KI markiert, was weg kann. Gelöscht wird erst nach deinem Ja.

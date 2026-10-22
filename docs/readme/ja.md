@@ -78,10 +78,10 @@ Sources/BingWallpaper/       SwiftUI のメニューバーアプリ
 
 私たちが作っているほかの製品です。
 
-- [Wear.AI](https://wear-ai.online) — 写真の上で服を試す。
-- [Live.AI](https://livephoto-ai.online) — 静止画を Live Photo にする。
-- [Picturebookpedia](https://www.picturebookpedia.cn) — 豆芽绘本百科。絵本ガイド。
-- [Little Earthpedia](https://earthpedia.picturebookpedia.cn) — 地球小百科。子どものための 3D 地球百科。
-- [DinoPedia](https://dino.picturebookpedia.cn) — 恐龙小百科。子どものための恐竜百科。
-- [Animal Friends](https://animalfriends.picturebookpedia.cn) — 动物好朋友。小さな子どもと動物キャラクターの音声チャット。
-- [Clean.AI](https://aiclean.picturebookpedia.cn) — Mac 向けの AI ディスク整理。
+- [Picturebookpedia](https://www.picturebookpedia.cn) — 豆芽绘本百科。今夜どの絵本？30万冊から、子どもの年齢で今夜の一冊を選ぶ。
+- [Little Earthpedia](https://earthpedia.picturebookpedia.cn) — 地球小百科。「ここどこ？」に、1800以上の場所を回して指させる。
+- [DinoPedia](https://dino.picturebookpedia.cn) — 恐龙小百科。「何の恐竜？」に、2200種と3Dモデルで答える。
+- [Animal Friends](https://animalfriends.picturebookpedia.cn) — 动物好朋友。絵本は返事をしない。タップすれば、子どもがライオンに電話できる。
+- [Wear.AI](https://wear-ai.online) — 気になる服を、買う前に自分の写真で着てみる。
+- [Live.AI](https://livephoto-ai.online) — 止まっている写真を長押しすると、本物の Live Photo になる。
+- [Clean.AI](https://aiclean.picturebookpedia.cn) — ディスクがまたいっぱい。消していいものを AI が示し、消すのはうなずいてから。
