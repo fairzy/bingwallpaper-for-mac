@@ -8,7 +8,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 APP_NAME="BingWallpaper"
-DISPLAY_NAME="Bing Wallpaper"
+DISPLAY_NAME="${DISPLAY_NAME:-Bing Wallpaper}"
 BUNDLE_ID="${BUNDLE_ID:-com.example.bingwallpaper}"
 VERSION="${VERSION:-0.1.0}"
 BUILD_NUMBER="${BUILD_NUMBER:-1}"
@@ -30,7 +30,7 @@ cat > "$APP/Contents/Info.plist" <<PLIST
     <key>CFBundleDevelopmentRegion</key><string>zh_CN</string>
     <key>CFBundleExecutable</key><string>${APP_NAME}</string>
     <key>CFBundleIdentifier</key><string>${BUNDLE_ID}</string>
-    <key>CFBundleName</key><string>${APP_NAME}</string>
+    <key>CFBundleName</key><string>${DISPLAY_NAME}</string>
     <key>CFBundleDisplayName</key><string>${DISPLAY_NAME}</string>
     <key>CFBundlePackageType</key><string>APPL</string>
     <key>CFBundleShortVersionString</key><string>${VERSION}</string>
@@ -39,9 +39,18 @@ cat > "$APP/Contents/Info.plist" <<PLIST
     <key>LSUIElement</key><true/>
     <key>LSApplicationCategoryType</key><string>public.app-category.utilities</string>
     <key>NSHighResolutionCapable</key><true/>
+    <key>ITSAppUsesNonExemptEncryption</key><false/>
 </dict>
 </plist>
 PLIST
+
+if [ -n "${APP_ICON:-}" ]; then
+  cp "$APP_ICON" "$APP/Contents/Resources/AppIcon.icns"
+  /usr/libexec/PlistBuddy -c 'Add :CFBundleIconFile string AppIcon' "$APP/Contents/Info.plist"
+fi
+if [ -n "${PRIVACY_MANIFEST:-}" ]; then
+  cp "$PRIVACY_MANIFEST" "$APP/Contents/Resources/PrivacyInfo.xcprivacy"
+fi
 
 if [ "$SIGN_IDENTITY" = "-" ]; then
   codesign --force --options runtime --timestamp=none --sign "$SIGN_IDENTITY" "$APP"

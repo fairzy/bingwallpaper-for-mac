@@ -10,9 +10,23 @@ enum WallpaperSetter {
             .imageScaling: NSImageScaling.scaleProportionallyUpOrDown.rawValue,
             .allowClipping: true,
         ]
+        // 沙盒里「桌面图片」读不到容器内的文件。图片文件夹的授权能写到真实的「图片」，系统读得了。
+        let imageURL = try desktopURL(for: url)
         for screen in NSScreen.screens {
-            try NSWorkspace.shared.setDesktopImageURL(url, for: screen, options: options)
+            try NSWorkspace.shared.setDesktopImageURL(imageURL, for: screen, options: options)
         }
+    }
+
+    private static func desktopURL(for url: URL) throws -> URL {
+        guard ProcessInfo.processInfo.environment["APP_SANDBOX_CONTAINER_ID"] != nil else { return url }
+        let folder = FileManager.default.homeDirectoryForCurrentUser
+            .appending(path: "Pictures/每天一张", directoryHint: .isDirectory)
+        try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
+        let destination = folder.appending(path: url.lastPathComponent)
+        if !FileManager.default.fileExists(atPath: destination.path) {
+            try FileManager.default.copyItem(at: url, to: destination)
+        }
+        return destination
     }
 }
 
