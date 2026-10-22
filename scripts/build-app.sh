@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# 构建 BingWallpaper.app（arm64 + x86_64 通用二进制，ad-hoc 签名）。
+# 构建 BingWallpaper.app（arm64 + x86_64 通用二进制）。
+# ad-hoc 签名不能加时间戳；Developer ID 必须加，否则公证会被拒。
 # 用法：scripts/build-app.sh            输出 build/BingWallpaper.app
 #      BUNDLE_ID=com.foo.bar VERSION=1.2.0 SIGN_IDENTITY="Developer ID Application: ..." scripts/build-app.sh
 set -euo pipefail
@@ -42,7 +43,11 @@ cat > "$APP/Contents/Info.plist" <<PLIST
 </plist>
 PLIST
 
-codesign --force --options runtime --timestamp=none --sign "$SIGN_IDENTITY" "$APP"
+if [ "$SIGN_IDENTITY" = "-" ]; then
+  codesign --force --options runtime --timestamp=none --sign "$SIGN_IDENTITY" "$APP"
+else
+  codesign --force --options runtime --timestamp --sign "$SIGN_IDENTITY" "$APP"
+fi
 codesign --verify --strict "$APP"
 lipo -archs "$APP/Contents/MacOS/$APP_NAME"
 echo "Built $APP"

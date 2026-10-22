@@ -1,13 +1,13 @@
 # Bing Wallpaper for macOS
 
-**Bing's daily photo, on your Mac — automatically.** A tiny menu-bar app that fetches the Bing daily wallpaper and sets it as your macOS desktop background. Free and open source (MIT).
+**Bing's daily photo, on your Mac — automatically.** A tiny menu-bar app that fetches the Bing daily wallpaper and sets it as your macOS desktop background. Free and open source (MIT). The release DMG is Developer ID signed and notarized.
 
 - 🖼️ New Bing daily image every day, applied automatically (checks every 30 minutes)
 - 🧭 Lives in the menu bar — preview, pause, or jump to previous days
 - 🎨 Theme collections with daily rotation
 - 🚀 Starts at login, Apple Silicon + Intel universal binary, macOS 14+
 
-**[宣传页](https://fairzy.github.io/bingwallpaper-for-mac/)** · **[GitHub](https://github.com/fairzy/bingwallpaper-for-mac)**
+**[下载 DMG](https://github.com/fairzy/bingwallpaper-for-mac/releases/download/v1.0.0/BingWallpaper-1.0.0.dmg)** · **[宣传页](https://fairzy.github.io/bingwallpaper-for-mac/)** · **[GitHub](https://github.com/fairzy/bingwallpaper-for-mac)**
 
 > Unofficial open-source project. Not affiliated with Microsoft. Bing and the daily images are trademarks/content of Microsoft.
 

@@ -451,8 +451,8 @@
         <h1>菜单栏里的<br>必应每日壁纸。</h1>
         <p class="lede">微软的 Bing Wallpaper 只有 Windows 版。这个小工具住在 Mac 的菜单栏里：拉取当天的必应图片，校验之后设为桌面。没有账号，图片只留在你自己的电脑上。</p>
         <div class="actions">
-          <a class="btn btn-primary" id="primary-cta" href="https://github.com/fairzy/bingwallpaper-for-mac">查看源码</a>
-          <a class="btn btn-ghost" href="#install">在本机构建</a>
+          <a class="btn btn-primary" id="primary-cta" href="https://github.com/fairzy/bingwallpaper-for-mac/releases/download/v1.0.0/BingWallpaper-1.0.0.dmg">下载 DMG</a>
+          <a class="btn btn-ghost" href="https://github.com/fairzy/bingwallpaper-for-mac">查看源码</a>
         </div>
         <ul class="facts">
           <li>macOS 14+</li>
@@ -569,16 +569,16 @@
     <section class="install" id="install">
       <div class="wrap">
         <p class="kicker">Install</p>
-        <h2 class="section-title">现在可以从源码构建。</h2>
+        <h2 class="section-title">下载，拖进应用程序。</h2>
         <div class="install-grid">
           <div>
-            <p class="section-lead" id="binary-status">GitHub Releases 上还没有安装包。本机有 macOS 14 和 Xcode 16（Swift 6）就可以自己编出来。</p>
+            <p class="section-lead" id="binary-status">打开 DMG，把 Bing Wallpaper 拖进「应用程序」。这个包用 Developer ID 签名，并经过 Apple 公证。</p>
             <ol class="steps">
-              <li>克隆仓库。</li>
-              <li>运行构建脚本，得到通用二进制的 .app。</li>
-              <li>打开它，看菜单栏里的图片图标。</li>
+              <li><a href="https://github.com/fairzy/bingwallpaper-for-mac/releases/download/v1.0.0/BingWallpaper-1.0.0.dmg">下载 BingWallpaper-1.0.0.dmg</a>。</li>
+              <li>打开磁盘映像，把应用拖到 Applications 文件夹。</li>
+              <li>从启动台打开。菜单栏出现图片图标后，今天的必应壁纸就会换上。</li>
             </ol>
-            <p class="fine">脚本默认做 ad-hoc 签名，适合自己用。要发给别人，需要你自己的 Developer ID，并完成公证。</p>
+            <p class="fine">想改代码的话，仍可以用 macOS 14 和 Xcode 16 自己构建。仓库里的脚本默认是 ad-hoc 签名，只适合自己用。</p>
           </div>
           <div class="code">
             <button class="copy" type="button" id="copy">复制</button>
