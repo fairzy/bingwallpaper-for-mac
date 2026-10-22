@@ -12,12 +12,14 @@ BUNDLE_ID="${BUNDLE_ID:-com.fairzy.oneaday}"
 TEAM_ID="${TEAM_ID:-2J6974AZ9L}"
 DISPLAY_NAME="${DISPLAY_NAME:-每天一张}"
 
+# 公开仓库不写死接口地址。商店包要走别的服务器时，由外部导出 WALLPAPER_API_BASE。
 DISPLAY_NAME="$DISPLAY_NAME" \
 BUNDLE_ID="$BUNDLE_ID" \
 VERSION="$VERSION" \
 BUILD_NUMBER="$BUILD_NUMBER" \
 APP_ICON="Sources/BingWallpaper/Resources/AppIcon.icns" \
 PRIVACY_MANIFEST="Sources/BingWallpaper/Resources/PrivacyInfo.xcprivacy" \
+WALLPAPER_API_BASE="${WALLPAPER_API_BASE:-}" \
 SIGN_IDENTITY="-" \
 scripts/build-app.sh
 

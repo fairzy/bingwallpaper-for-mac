@@ -3,6 +3,7 @@
 # ad-hoc 签名不能加时间戳；Developer ID 必须加，否则公证会被拒。
 # 用法：scripts/build-app.sh            输出 build/BingWallpaper.app
 #      BUNDLE_ID=com.foo.bar VERSION=1.2.0 SIGN_IDENTITY="Developer ID Application: ..." scripts/build-app.sh
+# 不设置 WALLPAPER_API_BASE 时，应用连必应官方接口。设置了才会写入 Info.plist。
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
@@ -43,6 +44,10 @@ cat > "$APP/Contents/Info.plist" <<PLIST
 </dict>
 </plist>
 PLIST
+
+if [ -n "${WALLPAPER_API_BASE:-}" ]; then
+  /usr/libexec/PlistBuddy -c "Add :WallpaperAPIBaseURL string ${WALLPAPER_API_BASE}" "$APP/Contents/Info.plist"
+fi
 
 if [ -n "${APP_ICON:-}" ]; then
   cp "$APP_ICON" "$APP/Contents/Resources/AppIcon.icns"

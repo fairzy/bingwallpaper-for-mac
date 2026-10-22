@@ -15,8 +15,27 @@ public enum BingAPIError: LocalizedError, Equatable {
 }
 
 /// `services.bingapis.com` v2 接口。都是公开 GET，不带密钥。
+/// 开源版固定走官方地址。另外打包时如果 Info.plist 写了非空的 `WallpaperAPIBaseURL`，才改用那个地址。
 public actor BingAPIClient {
-    public static let baseURL = URL(string: "https://services.bingapis.com/ge-apps/api/v2/")!
+    public nonisolated static let officialBaseURL = URL(string: "https://services.bingapis.com/ge-apps/api/v2/")!
+
+    public nonisolated static var baseURL: URL {
+        let configured = Bundle.main.object(forInfoDictionaryKey: "WallpaperAPIBaseURL") as? String
+        return resolvedBaseURL(configured)
+    }
+
+    /// 空值和非法地址都回到官方接口。没有结尾斜杠时补上，避免后面的路径把最后一段盖掉。
+    public nonisolated static func resolvedBaseURL(_ configured: String?) -> URL {
+        guard let configured, !configured.isEmpty else { return officialBaseURL }
+        let raw = configured.hasSuffix("/") ? configured : configured + "/"
+        guard let url = URL(string: raw),
+              let scheme = url.scheme?.lowercased(),
+              scheme == "http" || scheme == "https",
+              url.host != nil else {
+            return officialBaseURL
+        }
+        return url
+    }
 
     private let session: URLSession
     private let retry: RetryPolicy

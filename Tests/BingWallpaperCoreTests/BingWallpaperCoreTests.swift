@@ -57,6 +57,14 @@ private func fixture(_ name: String) throws -> Data {
         let url = BingAPIClient.hpImagesURL(market: "zh-CN", theme: "wild animal", bicFilterEnabled: true)
         #expect(url.absoluteString == "https://services.bingapis.com/ge-apps/api/v2/bwc/hpimages?mkt=zh-CN&theme=wild%20animal&defaultBrowser=&dhpSetToBing=false&dseSetToBing=false&IsBicFilterEnabled=true")
     }
+
+    @Test func emptyAPIBaseStaysOnOfficialServer() {
+        #expect(BingAPIClient.resolvedBaseURL(nil) == BingAPIClient.officialBaseURL)
+        #expect(BingAPIClient.resolvedBaseURL("") == BingAPIClient.officialBaseURL)
+        #expect(BingAPIClient.resolvedBaseURL("not a url") == BingAPIClient.officialBaseURL)
+        #expect(BingAPIClient.resolvedBaseURL("https://example.test/v2").absoluteString == "https://example.test/v2/")
+        #expect(BingAPIClient.resolvedBaseURL("https://example.test/v2/").absoluteString == "https://example.test/v2/")
+    }
 }
 
 @Suite struct ThemeCategoryTests {
