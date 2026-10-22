@@ -380,6 +380,35 @@
     .copy:hover { background: rgba(255, 255, 255, 0.06); }
     .fine { margin: 16px 0 0; color: rgba(247, 241, 232, 0.6); font-size: 13px; }
 
+    .editions { background: white; }
+    .edition-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .edition {
+      background: var(--paper);
+      border-radius: 16px;
+      padding: 24px 24px 22px;
+    }
+    .edition h3 { margin: 0 0 8px; font-size: 22px; font-weight: 600; }
+    .edition p { margin: 0; color: var(--muted); }
+    .edition .btn, .edition .btn-soon { margin-top: 18px; }
+    .edition .btn-primary { background: var(--ink); color: var(--cream); }
+    .edition .btn-primary:hover { background: #2a221c; }
+    .btn-soon {
+      display: inline-flex;
+      align-items: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 15px;
+    }
+
     .faq details {
       border-top: 1px solid var(--line);
       padding: 16px 0;
@@ -419,7 +448,7 @@
           "venice venice";
         grid-template-rows: 220px 160px 180px;
       }
-      .grid, .install-grid { grid-template-columns: 1fr; }
+      .grid, .install-grid, .edition-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 560px) {
       .wrap { width: min(var(--wrap), calc(100% - 36px)); }
@@ -450,6 +479,7 @@
     <nav class="nav-links" aria-label="页内">
       <a href="#gallery">每日图片</a>
       <a href="#features">它做什么</a>
+      <a href="#store">App Store</a>
       <a href="#install">安装</a>
       <a href="#faq">问题</a>
       <a class="pill" href="https://github.com/fairzy/bingwallpaper-for-mac"><svg class="gh" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
@@ -463,6 +493,7 @@
         <p class="lede">每天一张。自动换上你的桌面。</p>
         <div class="actions">
           <a class="btn btn-primary" id="primary-cta" href="https://github.com/fairzy/bingwallpaper-for-mac/releases/download/v1.0.0/BingWallpaper-1.0.0.dmg">下载 DMG</a>
+          <a class="btn btn-ghost" href="#store">App Store · Coming Soon</a>
           <a class="btn btn-ghost" href="https://github.com/fairzy/bingwallpaper-for-mac"><svg class="gh" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>查看源码</a>
         </div>
         <ul class="facts">
@@ -577,6 +608,27 @@
       </div>
     </section>
 
+    <section class="editions" id="store">
+      <div class="wrap">
+        <p class="kicker">Two editions</p>
+        <h2 class="section-title">开源版现在就能用。<br>App Store 版即将上架。</h2>
+        <div class="edition-grid">
+          <article class="edition">
+            <p class="kicker">Open source</p>
+            <h3>必应每日壁纸</h3>
+            <p>这个页面上的 DMG。免费。你的 Mac 自己连必应的公开接口，图片不经过我们。源码在 GitHub，可以自己改。</p>
+            <a class="btn btn-primary" id="store-dmg" href="https://github.com/fairzy/bingwallpaper-for-mac/releases/download/v1.0.0/BingWallpaper-1.0.0.dmg">下载 DMG</a>
+          </article>
+          <article class="edition">
+            <p class="kicker">Coming Soon</p>
+            <h3>每天一张</h3>
+            <p>Mac App Store 上的另一个应用，售价 US$2.99。图片先到我们自己的服务器，再回到你的 Mac。必应的接口如果停了，已经缓存的图还能继续换。它和开源版可以同时安装。</p>
+            <span class="btn-soon">App Store · Coming Soon</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="install" id="install">
       <div class="wrap">
         <p class="kicker">Install</p>
@@ -621,7 +673,11 @@ open build/BingWallpaper.app</pre>
           </details>
           <details>
             <summary>真的免费吗？</summary>
-            <p>免费，MIT 协议。源码在 GitHub 上，可以自己看、自己改、自己构建。</p>
+            <p>开源版免费，MIT 协议。源码在 GitHub 上。Mac App Store 上的「每天一张」即将上架，是另一个付费应用，售价 US$2.99。</p>
+          </details>
+          <details>
+            <summary>App Store 版和开源版有什么不一样？</summary>
+            <p>开源版是这个 DMG：免费，这台 Mac 直接向必应要图。App Store 版叫「每天一张」，Coming Soon。图片经过我们自己的服务器，所以官方接口失效之后，缓存过的图还能用。两个应用可以一起装。</p>
           </details>
           <details>
             <summary>图片存在哪里？</summary>
@@ -665,6 +721,8 @@ open build/BingWallpaper.app</pre>
       const button = document.getElementById("primary-cta");
       button.href = asset.browser_download_url;
       button.textContent = "下载 " + (release.tag_name || "DMG");
+      const storeDmg = document.getElementById("store-dmg");
+      if (storeDmg) storeDmg.href = asset.browser_download_url;
       document.getElementById("binary-status").textContent =
         "可以直接下载 " + asset.name + "。想改代码的话，仍可以用下面的命令自己构建。";
     }).catch(function () {});

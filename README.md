@@ -1,71 +1,87 @@
+**English** · [简体中文](docs/readme/zh-Hans.md) · [繁體中文](docs/readme/zh-Hant.md) · [日本語](docs/readme/ja.md) · [Deutsch](docs/readme/de.md) · [Français](docs/readme/fr.md) · [Español](docs/readme/es.md)
+
 # Bing Wallpaper for macOS
 
-**Bing's daily photo, on your Mac — automatically.** A tiny menu-bar app that fetches the Bing daily wallpaper and sets it as your macOS desktop background. Free and open source (MIT). The release DMG is Developer ID signed and notarized.
+**Bing's daily photo, on your Mac — automatically.** A small menu-bar app that fetches the Bing daily wallpaper and sets it as your desktop. Free and open source (MIT). The release DMG is Developer ID signed and notarized.
 
-- 🖼️ New Bing daily image every day, applied automatically (checks every 30 minutes)
-- 🧭 Lives in the menu bar — preview, pause, or jump to previous days
-- 🎨 Theme collections with daily rotation
-- 🚀 Starts at login, Apple Silicon + Intel universal binary, macOS 14+
+- New Bing daily image every day, applied automatically (checks every 30 minutes)
+- Lives in the menu bar — preview, pause, or step back through recent days
+- Theme collections that rotate once a day
+- Starts at login. Universal binary for Apple silicon and Intel. macOS 14+
 
-**[下载 DMG](https://github.com/fairzy/bingwallpaper-for-mac/releases/download/v1.0.0/BingWallpaper-1.0.0.dmg)** · **[宣传页](https://fairzy.github.io/bingwallpaper-for-mac/)** · **[GitHub](https://github.com/fairzy/bingwallpaper-for-mac)**
+**[Download DMG](https://github.com/fairzy/bingwallpaper-for-mac/releases/download/v1.0.0/BingWallpaper-1.0.0.dmg)** · **[Website](https://fairzy.github.io/bingwallpaper-for-mac/)** · **[GitHub](https://github.com/fairzy/bingwallpaper-for-mac)**
 
-> Unofficial open-source project. Not affiliated with Microsoft. Bing and the daily images are trademarks/content of Microsoft.
+> Unofficial open-source project. Not affiliated with Microsoft. Bing and the daily images belong to Microsoft and the photographers.
 
----
+This repository is the free edition. Your Mac talks to Bing's public API directly. A separate Mac App Store app, 每天一张, is coming soon. It is paid (US$2.99), loads images through our own service, and can be installed next to this one. See the [website](https://fairzy.github.io/bingwallpaper-for-mac/#store) for the difference.
 
-菜单栏常驻的必应每日壁纸。行为对齐 Windows 版 1.1.469.0，依据 [实现笔记](BingWallpaper-实现笔记.md)。
+Behavior follows the Windows app 1.1.469.0. Notes are in [BingWallpaper-实现笔记.md](BingWallpaper-实现笔记.md) (Chinese).
 
-## 构建与运行
+## Build and run
 
-需要 macOS 14+、Xcode 16+（Swift 6）。
+macOS 14+, Xcode 16+ (Swift 6).
 
 ```bash
-swift test                                   # 单元测试（不联网）
-BW_LIVE_TESTS=1 swift test --filter LiveAPITests   # 联网集成测试
-scripts/build-app.sh                         # 生成 build/BingWallpaper.app
+swift test                                   # unit tests, offline
+BW_LIVE_TESTS=1 swift test --filter LiveAPITests   # live API tests
+scripts/build-app.sh                         # writes build/BingWallpaper.app
 open build/BingWallpaper.app
 ```
 
-调试时也可以 `swift run`，但「登录时启动」只有 `.app` 形式才可用。
+`swift run` works for debugging. Login at startup only works when the app is a real `.app`.
 
-## 结构
+Leave `WALLPAPER_API_BASE` unset. The open-source build then uses Bing's public API.
+
+## Layout
 
 ```text
-Sources/BingWallpaperCore/   与 UI 无关、可测试的部分
-  BingImage.swift            hpimages 记录：图片 ID、下载地址、文件名
-  ThemeCategory.swift        主题目录、市场列表
-  BingAPIClient.swift        services.bingapis.com v2 接口
-  Resilience.swift           指数退避重试、熔断（对应 Polly）
-  ImageStore.swift           临时文件 → 长度/格式校验 → 落盘；目录索引；清理
-  RefreshPolicy.swift        30 分钟周期、失败退避、随机抖动
-Sources/BingWallpaper/       SwiftUI 菜单栏 App
-  AppModel.swift             刷新周期、自动换图、用户操作
-  Preferences.swift          UserDefaults 设置
-  SystemIntegration.swift    设置壁纸、登录启动、缩略图
-  Views/                     弹出面板与设置
+Sources/BingWallpaperCore/   testable code, no UI
+  BingImage.swift            hpimages record: id, download URL, file name
+  ThemeCategory.swift        themes and the market list
+  BingAPIClient.swift        services.bingapis.com v2
+  Resilience.swift           retry with backoff, circuit breaker (Polly)
+  ImageStore.swift           temp file, size and format checks, index, cleanup
+  RefreshPolicy.swift        30-minute cycle, failure backoff, jitter
+Sources/BingWallpaper/       SwiftUI menu-bar app
+  AppModel.swift             refresh loop, automatic apply, user actions
+  Preferences.swift          UserDefaults
+  SystemIntegration.swift    wallpaper, login item, thumbnails
+  Views/                     popover and settings
 ```
 
-## 与 Windows 版的对应
+## Windows app
 
 | Windows | macOS |
 | --- | --- |
-| `BingHPImageService` 拼 `hpimages` 地址、下载、校验、Polly 重试 | `BingAPIClient` + `ImageStore` + `withRetry` / `CircuitBreaker` |
-| `DailyRefreshService` 30 分钟定时器（`MioFastRefreshEnabled` 时 5 分钟） | `AppModel.start()` 循环；`defaults write <bundle-id> FastRefreshEnabled -bool YES` |
-| 上一轮未完成则跳过；空目录计数后退 | `isCycleRunning`；`RefreshPolicy.retryDelay` |
-| `RotateThemeImageDailyMessage` | 非 Bing 主题每天轮换一张 |
-| `ImageCleanup`、按主题硬链接 | 所有主题共用 `images/`，按 `index.json` 引用计数清理 |
-| 登录启动任务 `BingWallpaperStartupTask` | `SMAppService.mainApp`，首次启动自动开启 |
-| 计划任务一天两次拉起进程 | 不需要：监听系统唤醒立即刷新，`Task.sleep` 用连续时钟，睡眠期间也计时 |
+| `BingHPImageService` builds the `hpimages` URL, downloads, checks, retries with Polly | `BingAPIClient` + `ImageStore` + `withRetry` / `CircuitBreaker` |
+| `DailyRefreshService` every 30 minutes (5 when `MioFastRefreshEnabled`) | `AppModel.start()` loop; `defaults write <bundle-id> FastRefreshEnabled -bool YES` |
+| Skip when the previous pass is still running; back off on an empty catalog | `isCycleRunning`; `RefreshPolicy.retryDelay` |
+| `RotateThemeImageDailyMessage` | Non-Bing themes rotate one image a day |
+| `ImageCleanup`, hard links per theme | One shared `images/` folder, cleaned from `index.json` |
+| Startup task `BingWallpaperStartupTask` | `SMAppService.mainApp`, turned on at first launch |
+| Scheduled task launches the process twice a day | Not needed: refresh on wake, and `Task.sleep` uses a continuous clock |
 | LiteDB `images.db` | `~/Library/Application Support/BingWallpaper/index.json` |
 
-## 没有移植的部分
+## Not ported
 
-- `defaultBrowser` / `dhpSetToBing` / `dseSetToBing`：Windows 默认项推广，Mac 上传空值和 `false`。
-- 遥测、`MegaIntroOffer`、`server_config.json` 远程开关、热更新配置。
-- 包内离线默认图（版权需确认），断网时沿用上次缓存。
-- 图库搜索、`bwc/metadata`、小组件。
+- `defaultBrowser` / `dhpSetToBing` / `dseSetToBing`: Windows default-app prompts. On Mac the request sends an empty value and `false`.
+- Telemetry, `MegaIntroOffer`, remote `server_config.json`, hot config updates.
+- A bundled offline default image. When the network is down, the last cached photo stays.
+- Gallery search, `bwc/metadata`, widgets.
 
-## 已知限制
+## Limits
 
-- macOS 只允许改当前 Space 的壁纸；切到其他 Space 时会自动补设。
-- 默认 bundle ID 是占位的 `com.example.bingwallpaper`，正式发布前通过 `BUNDLE_ID`、`SIGN_IDENTITY` 换成正式值并公证。
+- macOS can change the wallpaper of the current Space only. Other Spaces are filled when you switch to them.
+- `scripts/build-app.sh` still defaults to the placeholder bundle id `com.example.bingwallpaper`. The notarized release uses `com.fairzy.bingwallpaper`.
+
+## Sponsor
+
+These are the other products we make.
+
+- [Wear.AI](https://wear-ai.online) — try clothes on a photo.
+- [Live.AI](https://livephoto-ai.online) — turn a still photo into a Live Photo.
+- [Picturebookpedia](https://www.picturebookpedia.cn) — 豆芽绘本百科, a picture-book guide.
+- [Little Earthpedia](https://earthpedia.picturebookpedia.cn) — 地球小百科, a 3D earth encyclopedia for children.
+- [DinoPedia](https://dino.picturebookpedia.cn) — 恐龙小百科, a dinosaur encyclopedia for children.
+- [Animal Friends](https://animalfriends.picturebookpedia.cn) — 动物好朋友, voice chats with animal characters for young children.
+- [Clean.AI](https://aiclean.picturebookpedia.cn) — AI disk cleanup for Mac.
