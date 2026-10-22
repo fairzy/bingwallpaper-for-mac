@@ -4,7 +4,7 @@
 
 **必應每天的一張圖，自動換上你的 Mac。** 選單列裡的小程式。免費，開源（MIT）。發布用的 DMG 以 Developer ID 簽署，並經過 Apple 公證。
 
-- 每天一張新圖，自動換上桌面（大約每 30 分鐘看一次）
+- 每日一張新圖，自動換上桌面（大約每 30 分鐘看一次）
 - 只住在選單列：預覽、暫停，或往前翻這幾天
 - 主題合集按天輪換
 - 登入時啟動。Apple 晶片與 Intel 通用二進位。macOS 14+
@@ -13,7 +13,7 @@
 
 > 非官方開源專案，與 Microsoft 無關。Bing 和每日圖片屬於微軟和拍攝者。
 
-這個倉庫是免費的開源版。你的 Mac 直接連接必應的公開介面。Mac App Store 上另有一個 App「每天一張」，即將上架。它是付費的（US$2.99），圖片經過我們自己的伺服器，可以和這個開源版同時安裝。差別寫在[網站](https://fairzy.github.io/bingwallpaper-for-mac/#store)。
+這個倉庫是免費的開源版。你的 Mac 直接連接必應的公開介面。Mac App Store 上另有一個 App「每日一張」，即將上架。它是付費的（US$2.99），圖片經過我們自己的伺服器，可以和這個開源版同時安裝。差別寫在[網站](https://fairzy.github.io/bingwallpaper-for-mac/#store)。
 
 行為對齊 Windows 版 1.1.469.0，依據 [實現筆記](../../BingWallpaper-实现笔记.md)（簡體中文）。
 

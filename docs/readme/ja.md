@@ -13,7 +13,7 @@
 
 > 非公式のオープンソースです。Microsoft とは関係ありません。Bing と毎日の画像の権利は Microsoft と撮影者にあります。
 
-このリポジトリは無料版です。Mac は Bing の公開 API に直接接続します。Mac App Store 向けの別アプリ「每天一张」は近日公開です。有料（US$2.99）で、画像は私たちのサーバー経由です。この無料版と同時にインストールできます。違いは[ウェブサイト](https://fairzy.github.io/bingwallpaper-for-mac/#store)に書いてあります。
+このリポジトリは無料版です。Mac は Bing の公開 API に直接接続します。Mac App Store 向けの別アプリ「每日一张」は近日公開です。有料（US$2.99）で、画像は私たちのサーバー経由です。この無料版と同時にインストールできます。違いは[ウェブサイト](https://fairzy.github.io/bingwallpaper-for-mac/#store)に書いてあります。
 
 動作は Windows 版 1.1.469.0 に合わせています。メモは [BingWallpaper-实现笔记.md](../../BingWallpaper-实现笔记.md)（中国語）です。
 

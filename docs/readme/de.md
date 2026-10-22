@@ -13,7 +13,7 @@
 
 > Inoffizielles Open-Source-Projekt. Nicht mit Microsoft verbunden. Bing und die täglichen Bilder gehören Microsoft und den Fotografen.
 
-Dieses Repository ist die kostenlose Ausgabe. Der Mac spricht direkt mit der öffentlichen Bing-API. Eine eigene Mac-App-Store-App, 每天一张, kommt bald. Sie kostet 2,99 US-Dollar, lädt Bilder über unseren eigenen Dienst und lässt sich neben dieser Version installieren. Der Unterschied steht auf der [Website](https://fairzy.github.io/bingwallpaper-for-mac/#store).
+Dieses Repository ist die kostenlose Ausgabe. Der Mac spricht direkt mit der öffentlichen Bing-API. Eine eigene Mac-App-Store-App, 每日一张, kommt bald. Sie kostet 2,99 US-Dollar, lädt Bilder über unseren eigenen Dienst und lässt sich neben dieser Version installieren. Der Unterschied steht auf der [Website](https://fairzy.github.io/bingwallpaper-for-mac/#store).
 
 Das Verhalten folgt der Windows-App 1.1.469.0. Die Notizen stehen in [BingWallpaper-实现笔记.md](../../BingWallpaper-实现笔记.md) (Chinesisch).
 

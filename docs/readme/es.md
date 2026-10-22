@@ -13,7 +13,7 @@
 
 > Proyecto de código abierto no oficial. No está vinculado a Microsoft. Bing y las imágenes diarias pertenecen a Microsoft y a quienes las fotografiaron.
 
-Este repositorio es la edición gratuita. El Mac habla directamente con la API pública de Bing. Otra app de la Mac App Store, 每天一张, llegará pronto. Es de pago (2,99 USD), carga las imágenes a través de nuestro propio servicio y se puede instalar junto a esta. La diferencia está en el [sitio](https://fairzy.github.io/bingwallpaper-for-mac/#store).
+Este repositorio es la edición gratuita. El Mac habla directamente con la API pública de Bing. Otra app de la Mac App Store, 每日一张, llegará pronto. Es de pago (2,99 USD), carga las imágenes a través de nuestro propio servicio y se puede instalar junto a esta. La diferencia está en el [sitio](https://fairzy.github.io/bingwallpaper-for-mac/#store).
 
 El comportamiento sigue la app de Windows 1.1.469.0. Las notas están en [BingWallpaper-实现笔记.md](../../BingWallpaper-实现笔记.md) (chino).
 
