@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bing Wallpaper for Mac — 菜单栏里的必应每日壁纸</title>
-  <meta name="description" content="开源的 macOS 菜单栏应用：拉取必应每日图片，校验后设为桌面壁纸。支持主题轮换、登录启动，Apple 芯片与 Intel 通用二进制。非官方，MIT 协议。">
+  <title>必应每日壁纸 for Mac</title>
+  <meta name="description" content="每天一张必应每日图片，换上你的 Mac。免费，开源。">
   <link rel="canonical" href="https://fairzy.github.io/bingwallpaper-for-mac/">
   <meta name="theme-color" content="#1a120c">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_CN">
-  <meta property="og:title" content="Bing Wallpaper for Mac — 菜单栏里的必应每日壁纸">
-  <meta property="og:description" content="必应每日照片，自动换上你的 Mac 桌面。菜单栏预览、往前翻、主题轮换。免费开源，没有账号。">
+  <meta property="og:title" content="必应每日壁纸 for Mac">
+  <meta property="og:description" content="每天一张。自动换上你的桌面。">
   <meta property="og:url" content="https://fairzy.github.io/bingwallpaper-for-mac/">
   <meta property="og:image" content="https://www.bing.com/th?id=OHR.NaejangsanNP_ZH-CN6538893004_UHD.jpg&amp;w=1200&amp;qlt=80">
   <meta name="twitter:card" content="summary_large_image">
@@ -123,21 +123,22 @@
         linear-gradient(100deg, rgba(16, 10, 8, 0.82) 0%, rgba(16, 10, 8, 0.55) 42%, rgba(16, 10, 8, 0.18) 100%),
         var(--hero) url("https://www.bing.com/th?id=OHR.NaejangsanNP_ZH-CN6538893004_UHD.jpg&w=1800&qlt=75") center / cover no-repeat;
     }
-    .hero-copy { max-width: 640px; padding-bottom: 12px; }
-    .eyebrow {
-      margin: 0 0 18px;
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 22px;
-      letter-spacing: -0.02em;
-    }
+    .hero-copy { max-width: 720px; padding-bottom: 12px; }
     h1 {
       margin: 0;
       font-family: var(--serif);
       font-weight: 560;
-      font-size: clamp(42px, 5.4vw, 76px);
-      line-height: 1.12;
-      letter-spacing: -0.02em;
+      font-size: clamp(46px, 6vw, 84px);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+    }
+    h1 .name,
+    h1 .for-mac { display: block; }
+    h1 .for-mac {
+      margin-top: 0.06em;
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: -0.04em;
     }
     .lede {
       max-width: 46ch;
@@ -447,9 +448,8 @@
   <main id="main">
     <section class="hero" id="top">
       <div class="hero-copy">
-        <p class="eyebrow">The daily photo, on your Mac.</p>
-        <h1>菜单栏里的<br>必应每日壁纸。</h1>
-        <p class="lede">微软的 Bing Wallpaper 只有 Windows 版。这个小工具住在 Mac 的菜单栏里：拉取当天的必应图片，校验之后设为桌面。没有账号，图片只留在你自己的电脑上。</p>
+        <h1><span class="name">必应每日壁纸</span><span class="for-mac">for Mac.</span></h1>
+        <p class="lede">每天一张。自动换上你的桌面。</p>
         <div class="actions">
           <a class="btn btn-primary" id="primary-cta" href="https://github.com/fairzy/bingwallpaper-for-mac/releases/download/v1.0.0/BingWallpaper-1.0.0.dmg">下载 DMG</a>
           <a class="btn btn-ghost" href="https://github.com/fairzy/bingwallpaper-for-mac">查看源码</a>
@@ -503,8 +503,8 @@
     <section class="gallery" id="gallery">
       <div class="wrap">
         <p class="kicker">Recent days</p>
-        <h2 class="section-title">同一张每日图片，<br>从菜单栏落到桌面。</h2>
-        <p class="section-lead">应用大约每 30 分钟看一次有没有新图。你也可以在菜单栏里往前翻这几天，或换一个主题，让它每天轮一张。</p>
+        <h2 class="section-title">今天这一张。<br>明天，又是一张。</h2>
+        <p class="section-lead">大约每 30 分钟看一次有没有新图。也可以往前翻这几天，或换一个主题，每天轮一张。</p>
         <div class="frames">
           <figure class="lead">
             <img src="https://www.bing.com/th?id=OHR.NaejangsanNP_ZH-CN6538893004_UHD.jpg&amp;w=1200&amp;qlt=75" alt="内藏山国立公园的秋色倒映在水面上">
