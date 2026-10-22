@@ -9,7 +9,7 @@
 - 主题合集按天轮换
 - 登录时启动。Apple 芯片和 Intel 通用二进制。macOS 14+
 
-**[下载 DMG](https://github.com/fairzy/bingwallpaper-for-mac/releases/download/v1.0.0/BingWallpaper-1.0.0.dmg)** · **[宣传页](https://fairzy.github.io/bingwallpaper-for-mac/)** · **[GitHub](https://github.com/fairzy/bingwallpaper-for-mac)**
+**[下载 DMG](https://github.com/fairzy/bingwallpaper-for-mac/releases/download/v1.1.0/BingWallpaper-1.1.0.dmg)** · **[宣传页](https://fairzy.github.io/bingwallpaper-for-mac/)** · **[GitHub](https://github.com/fairzy/bingwallpaper-for-mac)**
 
 > 非官方开源项目，与 Microsoft 无关。Bing 和每日图片属于微软和拍摄者。
 
