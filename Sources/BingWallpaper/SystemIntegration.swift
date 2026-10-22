@@ -20,7 +20,7 @@ enum WallpaperSetter {
     private static func desktopURL(for url: URL) throws -> URL {
         guard ProcessInfo.processInfo.environment["APP_SANDBOX_CONTAINER_ID"] != nil else { return url }
         let folder = FileManager.default.homeDirectoryForCurrentUser
-            .appending(path: "Pictures/每日一张", directoryHint: .isDirectory)
+            .appending(path: "Pictures/OnePaper", directoryHint: .isDirectory)
         try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
         let destination = folder.appending(path: url.lastPathComponent)
         if !FileManager.default.fileExists(atPath: destination.path) {

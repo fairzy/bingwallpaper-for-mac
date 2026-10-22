@@ -13,7 +13,7 @@
 
 > 非官方开源项目，与 Microsoft 无关。Bing 和每日图片属于微软和拍摄者。
 
-这个仓库是免费的开源版。你的 Mac 直接连接必应的公开接口。Mac App Store 上另有一个应用「每日一张」，即将上架。它是付费的（US$2.99），图片经过我们自己的服务器，可以和这个开源版同时安装。差别写在[宣传页](https://fairzy.github.io/bingwallpaper-for-mac/#store)。
+这个仓库是免费的开源版。你的 Mac 直接连接必应的公开接口。Mac App Store 上另有一个应用「OnePaper - 必应同源每日壁纸」，即将上架。菜单栏里显示的名字是 OnePaper。它是付费的（US$2.99），图片经过我们自己的服务器，可以和这个开源版同时安装。差别写在[宣传页](https://fairzy.github.io/bingwallpaper-for-mac/#store)。
 
 行为对齐 Windows 版 1.1.469.0，依据 [实现笔记](../../BingWallpaper-实现笔记.md)。
 

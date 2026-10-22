@@ -13,7 +13,7 @@
 
 > Projet open source non officiel. Sans lien avec Microsoft. Bing et les images du jour appartiennent à Microsoft et aux photographes.
 
-Ce dépôt est l'édition gratuite. Le Mac parle directement à l'API publique de Bing. Une autre app Mac App Store, 每日一张, arrive bientôt. Elle est payante (2,99 USD), charge les images via notre propre service, et s'installe à côté de celle-ci. La différence est sur le [site](https://fairzy.github.io/bingwallpaper-for-mac/#store).
+Ce dépôt est l'édition gratuite. Le Mac parle directement à l'API publique de Bing. Une autre app Mac App Store, OnePaper - 必应同源每日壁纸, arrive bientôt. Dans la barre des menus, elle s'appelle OnePaper. Elle est payante (2,99 USD), charge les images via notre propre service, et s'installe à côté de celle-ci. La différence est sur le [site](https://fairzy.github.io/bingwallpaper-for-mac/#store).
 
 Le comportement suit l'app Windows 1.1.469.0. Les notes sont dans [BingWallpaper-实现笔记.md](../../BingWallpaper-实现笔记.md) (chinois).
 
