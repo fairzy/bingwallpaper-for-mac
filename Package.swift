@@ -16,6 +16,9 @@ let package = Package(
             exclude: [
                 "BingWallpaper.entitlements",
                 "Resources/AppIcon.icns",
+            ],
+            resources: [
+                .copy("Resources/MenuBarIcon.png"),
             ]
         ),
         .testTarget(

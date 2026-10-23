@@ -64,6 +64,9 @@ fi
 for lproj in Sources/BingWallpaper/Resources/*.lproj; do
   cp -R "$lproj" "$APP/Contents/Resources/"
 done
+if [ -f Sources/BingWallpaper/Resources/MenuBarIcon.png ]; then
+  cp Sources/BingWallpaper/Resources/MenuBarIcon.png "$APP/Contents/Resources/"
+fi
 
 # 仓库里的图标是默认应用图标。调用方仍可用 APP_ICON 换一张。
 APP_ICON="${APP_ICON:-Sources/BingWallpaper/Resources/AppIcon.icns}"
