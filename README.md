@@ -9,7 +9,7 @@
 - Theme collections that rotate once a day
 - Starts at login. Universal binary for Apple silicon and Intel. macOS 14+
 
-**[Download DMG](https://github.com/fairzy/bingwallpaper-for-mac/releases/download/v1.1.0/BingWallpaper-1.1.0.dmg)** · **[Website](https://fairzy.github.io/bingwallpaper-for-mac/)** · **[GitHub](https://github.com/fairzy/bingwallpaper-for-mac)**
+**[Download DMG](https://github.com/fairzy/bingwallpaper-for-mac/releases/download/v1.1.1/BingWallpaper-1.1.1.dmg)** · **[Website](https://fairzy.github.io/bingwallpaper-for-mac/)** · **[GitHub](https://github.com/fairzy/bingwallpaper-for-mac)**
 
 > Unofficial open-source project. Not affiliated with Microsoft. Bing and the daily images belong to Microsoft and the photographers.
 

@@ -9,7 +9,7 @@
 - テーマ集は 1 日 1 枚ずつ入れ替え
 - ログイン時に起動。Apple シリコンと Intel のユニバーサルバイナリ。macOS 14 以降
 
-**[DMG をダウンロード](https://github.com/fairzy/bingwallpaper-for-mac/releases/download/v1.1.0/BingWallpaper-1.1.0.dmg)** · **[ウェブサイト](https://fairzy.github.io/bingwallpaper-for-mac/)** · **[GitHub](https://github.com/fairzy/bingwallpaper-for-mac)**
+**[DMG をダウンロード](https://github.com/fairzy/bingwallpaper-for-mac/releases/download/v1.1.1/BingWallpaper-1.1.1.dmg)** · **[ウェブサイト](https://fairzy.github.io/bingwallpaper-for-mac/)** · **[GitHub](https://github.com/fairzy/bingwallpaper-for-mac)**
 
 > 非公式のオープンソースです。Microsoft とは関係ありません。Bing と毎日の画像の権利は Microsoft と撮影者にあります。
 

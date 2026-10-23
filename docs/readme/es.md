@@ -9,7 +9,7 @@
 - Colecciones de temas que cambian una imagen al día
 - Arranque al iniciar sesión. Binario universal para Apple silicon e Intel. macOS 14+
 
-**[Descargar DMG](https://github.com/fairzy/bingwallpaper-for-mac/releases/download/v1.1.0/BingWallpaper-1.1.0.dmg)** · **[Sitio](https://fairzy.github.io/bingwallpaper-for-mac/)** · **[GitHub](https://github.com/fairzy/bingwallpaper-for-mac)**
+**[Descargar DMG](https://github.com/fairzy/bingwallpaper-for-mac/releases/download/v1.1.1/BingWallpaper-1.1.1.dmg)** · **[Sitio](https://fairzy.github.io/bingwallpaper-for-mac/)** · **[GitHub](https://github.com/fairzy/bingwallpaper-for-mac)**
 
 > Proyecto de código abierto no oficial. No está vinculado a Microsoft. Bing y las imágenes diarias pertenecen a Microsoft y a quienes las fotografiaron.
 
