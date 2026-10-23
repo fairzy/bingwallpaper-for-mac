@@ -8,7 +8,7 @@ cd "$(dirname "$0")/.."
 
 VERSION="${VERSION:-1.0.0}"
 BUILD_NUMBER="${BUILD_NUMBER:-1}"
-BUNDLE_ID="${BUNDLE_ID:-com.fairzy.oneaday}"
+BUNDLE_ID="${BUNDLE_ID:-ai.talent.limited.onepaper}"
 TEAM_ID="${TEAM_ID:-2J6974AZ9L}"
 DISPLAY_NAME="${DISPLAY_NAME:-OnePaper}"
 
