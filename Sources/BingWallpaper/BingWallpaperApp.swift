@@ -25,18 +25,23 @@ private enum MenuBarIcon {
     }()
 
     private static func load() -> NSImage {
-        let urls = [
-            Bundle.main.url(forResource: "MenuBarIcon", withExtension: "png"),
-            Bundle.module.url(forResource: "MenuBarIcon", withExtension: "png"),
-        ]
-        for url in urls.compactMap({ $0 }) {
-            if let image = NSImage(contentsOf: url) {
-                return image
-            }
+        // 正式包里的图在 Contents/Resources。Bundle.module 找不到开发资源包时会直接中断启动，所以只有主包没有图才去问它。
+        if let image = image(in: Bundle.main) {
+            return image
+        }
+        if let image = image(in: Bundle.module) {
+            return image
         }
         let fallback = NSImage(systemSymbolName: "photo.on.rectangle.angled", accessibilityDescription: nil) ?? NSImage()
         fallback.isTemplate = true
         return fallback
+    }
+
+    private static func image(in bundle: Bundle) -> NSImage? {
+        guard let url = bundle.url(forResource: "MenuBarIcon", withExtension: "png") else {
+            return nil
+        }
+        return NSImage(contentsOf: url)
     }
 }
 
